@@ -18,7 +18,6 @@ API provider: http://api.fanyi.baidu.com/api/trans/vip/translate
     
     `@langtb`: Display part of the supported language code.(Visit https://api.fanyi.baidu.com/doc/21 to get the full list.)
 
-    <br/>
 
 * About history.
 
@@ -26,7 +25,6 @@ API provider: http://api.fanyi.baidu.com/api/trans/vip/translate
 
     `@disp`: Display all translating history.
 
-    <br/>
 
 * Exit program.
 
