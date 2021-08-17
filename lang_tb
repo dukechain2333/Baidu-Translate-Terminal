@@ -1,0 +1,17 @@
+Code     Language
+------------------------------
+auto     Auto Detect Language
+zh       Chinese(Simplified)
+cht      Chinese(Traditional)
+wyw      Chinese(Ancient)
+kor      Korean
+ara      Arabic
+de       German
+en       English
+spa      Spanish
+fra      French
+it       Italian
+jp       Japanese
+ru       Russian
+------------------------------
+Visit https://api.fanyi.baidu.com/doc/21 to get the full list.

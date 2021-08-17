@@ -1,0 +1,14 @@
+===============================================
+==           Baidu Translation API           ==
+==                                           ==
+==               ZHChain, 2021               ==
+===============================================
+
+help:
+@lang en-zh   # switch language (e.g. zh-en meaning translate Chinese to English)
+@langtb       # list language codes table(zh:Chinese en:English)
+
+@clr          # clear translating history
+@disp         # display translating history
+
+@exit         # exit
