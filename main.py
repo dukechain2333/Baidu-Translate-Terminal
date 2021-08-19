@@ -77,20 +77,20 @@ if __name__ == '__main__':
         welcome = file.read()
     print(welcome)
 
-    while True:
-        # load config
+    # load config
+    with open('config.json', 'r', encoding='utf-8') as file:
+        config = json.load(file)
+
+    # check whether there is a appid&appkey
+    if len(config['appid']) == 0 or len(config['appkey']) == 0:
+        appid = input("> Please input your appid below:\n> ")
+        appkey = input("> Please input your appkey below:\n> ")
+        set_key(appid, appkey, config)
         with open('config.json', 'r', encoding='utf-8') as file:
             config = json.load(file)
+        print("> \33[32mSet Key Success!\33[0m")
 
-        # check whether there is a appid&appkey
-        if len(config['appid']) == 0 or len(config['appkey']) == 0:
-            appid = input("> Please input your appid below:\n> ")
-            appkey = input("> Please input your appkey below:\n> ")
-            set_key(appid, appkey, config)
-            with open('D:\\BaiduTranslate-Terminal\\config.json', 'r', encoding='utf-8') as file:
-                config = json.load(file)
-            print("> \33[32mSet Key Success!\33[0m")
-
+    while True:
         status = config['from_lang']+'-'+config['to_lang']
         query = input(f"({status}) > ")
         if query[0] == '@':
