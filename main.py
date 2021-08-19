@@ -87,19 +87,21 @@ if __name__ == '__main__':
             appid = input("> Please input your appid below:\n> ")
             appkey = input("> Please input your appkey below:\n> ")
             set_key(appid, appkey, config)
-            with open('config.json', 'r', encoding='utf-8') as file:
+            with open('D:\\BaiduTranslate-Terminal\\config.json', 'r', encoding='utf-8') as file:
                 config = json.load(file)
             print("> \33[32mSet Key Success!\33[0m")
 
-        query = input("> ")
+        status = config['from_lang']+'-'+config['to_lang']
+        query = input(f"({status}) > ")
         if query[0] == '@':
             cmd = query[1:].split()
-            if cmd[0]=='exit':
+            if cmd[0] == 'exit':
                 break
             try:
                 hashed_function[cmd[0]](*cmd[1:])
             except:
-                print('\033[0;31;40mNot supported function! Please try again!\033[0m')
+                print(
+                    '\033[0;31;40mNot supported function! Please try again!\033[0m')
         else:
             salt = random.randint(32768, 65536)
             sign = make_md5(config['appid'] + query +
@@ -112,7 +114,8 @@ if __name__ == '__main__':
                 r = requests.post(url, params=payload, headers=headers)
                 result = r.json()
             except:
-                print("\033[0;31;40mSomething has gone Wrong! Probably due to your NetWork Status.\033[0m")
+                print(
+                    "\033[0;31;40mSomething has gone Wrong! Probably due to your NetWork Status.\033[0m")
 
             try:
                 fromLang = result['from']
@@ -128,4 +131,5 @@ if __name__ == '__main__':
                     file.seek(0)
                     json.dump(history, file, indent=4, ensure_ascii=False)
             except:
-                print('\033[0;31;40mSomething has gone Wrong! Please check your config file!\033[0m')
+                print(
+                    '\033[0;31;40mSomething has gone Wrong! Please check your config file!\033[0m')
