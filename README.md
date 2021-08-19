@@ -29,3 +29,7 @@ API provider: http://api.fanyi.baidu.com/api/trans/vip/translate
 * Exit program.
 
     `@exit`: Exit the program
+    
+## Others
+
+If you are looking for a dictionary implement, check https://github.com/cloudy-sfu/Google-Dictionary-API
