@@ -50,7 +50,6 @@ def display_history():
         print(f'Translation:\33[34m{trans}\33[0m')
         print('\n')
 
-
 def clear_history():
     with open('history.json', 'r', encoding='utf-8') as file:
         history = json.load(file)
@@ -93,11 +92,13 @@ if __name__ == '__main__':
     while True:
         status = config['from_lang']+'-'+config['to_lang']
         query = input(f"({status}) > ")
+        if not query:
+            continue
         if query[0] == '@':
-            cmd = query[1:].split()
-            if cmd[0] == 'exit':
-                break
             try:
+                cmd = query[1:].split()
+                if cmd[0] == 'exit':
+                    break
                 hashed_function[cmd[0]](*cmd[1:])
             except:
                 print(
